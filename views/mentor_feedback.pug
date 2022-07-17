@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor</title>
+  <link rel="stylesheet" href="../static/feedback.css">
+</head>
+<body>
+  <nav id="navbar" class="navbar">
+    <ul>
+      <a href="/"><li>Home</li></a>
+      <a href="/mentor"><li>Dashboard</li></a>
+      <a href="/mentorlogout"><li>Logout</li></a>
+    </ul>
+  </nav>
+
+  <section class="mentorfeedback">
+       <h1>Feedback</h1>
+     
+       <div class="mentfeedcontainer">
+            <div class="messeges chatflexbox">
+           
+            </div>
+      
+            <div class="msgform chatflexbox">
+            <form action="/feedfrmmentor" method="post" class="msgsend">
+              <input type="text" class="msg" size="60" name="messege">
+              <input type="hidden" name="from" value="mentor">
+              <input type="Submit" value="Send">
+            </form>
+            </div>
+         
+       </div>
+
+  </section>
+  
+
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "dbms_project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "saurabh",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-mongo-sanitize": "^2.2.0",
+    "mongoose": "^6.2.10",
+    "pug": "^3.0.2",
+    "store2": "^2.13.2"
+  }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="/">Home </a></li>
+            <li><a href="/registration">Register </a></li>
+            <li><a href="/login">Login </a> </li>
+        </ul>
+    </nav>
+    <div class="headline">LOGIN</div>
+    <div id="login">
+        <div class="adminlog loginbox">
+            <p>ADMIN</p>
+            <form action="/admin-login" method="post" class="formcontainer">
+                <h4>Email :</h4>
+                <input type="email" name="log_adminemail"class="input-text" placeholder="enter your email">
+                <h4>Password :</h4>
+                <input type="password" class="input-text" name="log_adminpassword" placeholder="enter your password">
+                <input type="submit" value="login" class="login-btn">
+            </form>
+        </div>
+        <div class="mentorlog loginbox">
+            <p>MENTOR</p>
+            <form action="/mentor-login" method="post" class="formcontainer">
+                <h4>Email :</h4>
+                <input type="email" name="login_mentoremail"class="input-text" placeholder="enter your email">
+                <h4>Password :</h4>
+                <input type="password" class="input-text"  name="login_mentorpassword" placeholder="enter your password">
+                <input type="submit" value="login" class="login-btn">
+            </form>
+        </div>
+        <div class="menteelog loginbox">
+            <p>MENTEES</p>
+            <form action="/mentee-login" method="post" class="formcontainer">
+                <h4>Email :</h4>
+                <input type="email" name="login_menteeemail" class="input-text" placeholder="enter your email">
+                <h4>Password :</h4>
+                <input type="password" class="input-text" name="login_menteepassword" placeholder="enter your password">
+                <input type="submit" value="login" class="login-btn">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

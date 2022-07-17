@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mentor</title>
+  <link rel="stylesheet" href="../static/pagestyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+  <nav id="navbar" class="navbar">
+    <ul>
+      <li><a href="/">Home </a></li>
+      <li><a href="mailto:saurabh18187@gmail.com?subject=Feedback from mentor regarding mentorship&body=Please include your mentorid and email in mail">Feedback </a></li>
+      <li><a href="/mentorlogout">Logout</a></li>
+    </ul>
+  </nav>
+  <p class="mhead">Welcome! &nbsp <span>#{data.mentor.mentorname}</span></p>
+  <div class="container1">
+   <div class="box1 details">
+   <div class="menthead ">Details Of the Mentee Assigned to You: </div>
+   <table>
+     <tr>
+       <td>Mentee Id:</td>
+       <td>#{data.mentee.mentee_id}</td>
+     </tr>
+     <tr>
+       <td>Name:</td>
+       <td>#{data.mentee.menteename}</td>
+     </tr>
+     <tr>
+       <td> Gender:</td>
+       <td>  #{data.mentee.menteegender} </td>
+     </tr>
+     <tr>
+       <td>Department: </td>
+       <td> #{data.mentee.menteedepartment}  </td>
+     </tr>
+     <tr>
+       <td> Phone NO:</td>
+       <td> #{data.mentee.menteephone} </td>
+     </tr>
+     <tr>
+      <td>Email: </td>
+      <td>  #{data.mentee.menteeemail}  </td>
+     </tr>
+     <tr>
+      <td>Semester: </td>
+      <td>  #{data.mentee.menteesemester}  </td>
+     </tr>
+     <tr>
+      <td>Language: </td>
+      <td>  #{data.mentee.menteelanguage}  </td>
+     </tr>
+   </table>
+   </div>
+
+   <div class="box1 chat">
+      <div class="chatflexbox ">
+        <h2 class="heading"  >#{data.mentee.menteename}</h2>
+      </div>
+      <div class="messeges chatflexbox">
+      each list in data.messeged
+         <div class="#{list.From}" ><div class="newjugad">#{list.messege}</div></div>
+      </div>
+
+      <div class="msgform chatflexbox">
+      <form action="/sendmsgbymentor" method="post" class="msgsend">
+        <input type="text" class="msg"  name="messege">
+        <input type="hidden" name="mentorid" value="#{data.mentor.mentor_id}">
+        <input type="hidden" name="menteeid" value="#{data.mentee.mentee_id}">
+        <input type="hidden" name="from" value="mentor">
+        <input type="hidden" name="to" value="mentee">
+        <input type="Submit" class="delete" value="Send">
+      </form>
+      </div>
+   </div>
+
+  </div>
+  
+</body>
+</html>

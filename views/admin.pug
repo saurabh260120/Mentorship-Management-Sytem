@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin</title>
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../static/admincss.css">
+
+</head>
+<body>
+  //- <h1>This is admin page</h1>
+  <nav id="navbar" class="navbar">
+    <ul>
+      <a href="/"><li>Home</li></a>
+      <!-- <a href="/feedback-admin"><li>Feedback</li></a> -->
+      <a href="/"><li>Logout</li></a>
+    </ul>
+  </nav>
+ 
+  <section class="containerlist">
+    <table class="table table-striped mentort">
+      <caption class="table-heading">Mentor List</caption>
+        <thead>
+            <tr>
+                <th>Mentor_Id</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th>Gender </th>
+                <th>Mentee_id</th>
+                <th>Assign</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            each list in data.mentor
+              tr 
+                td #{list.mentor_id}
+                td #{list.mentorname}
+                td #{list.mentordepartment}
+                td #{list.mentorgender}
+                td #{list.assignedmentee}
+                <form action="/assignment" method="post" >
+                <td><input type="text" width="10px" id="pin" name="map" size="4" autocomplete="off" class="inline">
+                <input type="hidden" name="id" value="#{list.mentor_id}">
+                </td>
+                <td>
+                <input class="butn" type="Submit" value="Assign" class="inline">
+                </td>
+                </form>
+        </tbody>
+    </table>
+
+  <table class="table table-striped menteet">
+    <caption class="table-heading">Mentee List</caption>
+      <thead>
+          <tr>
+              <th>Mentee_Id</th>
+              <th>Name</th>
+              <th>Department</th>
+              <th>Gender </th>
+              <th>Mentor_id</th>
+          </tr>
+      </thead>
+      <tbody>
+          each list in data.mentee
+            tr 
+                td #{list.mentee_id}
+                td #{list.menteename}
+                td #{list.menteedepartment}
+                td #{list.menteegender}
+                td #{list.assignedmentor}         
+      </tbody>
+  </table>
+  </section>
+  
+
+</body>
+</html> 

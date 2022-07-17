@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body>
+    <nav id="navbar">
+        <ul>
+            <li><a href="/">Home </a></li>
+            <li><a href="/registration">Register </a></li>
+            <li><a href="/login">Login </a> </li>
+        </ul>
+    </nav>
+    <div class="headline">REGISTER</div>
+    <div id="registration">
+        <div class="adimnreg registrationbox">
+            <p>ADMIN</p>
+            <form class="formcontainer" action="/admin-registration" method="post">
+                <h4>Name :</h4>
+                <input class="input-text" type="text" name="adminname" placeholder="enter your name" autocomplete="off" required>
+                <h4>Email :</h4>
+                <input class="input-text" type="email" name="adminemail" placeholder="enter your email" autocomplete="off" required>
+                <h4>Password :</h4>
+                <input class="input-text" type="password" name="adminpassword" placeholder="create your password" required>
+                <input class="buttn" type="submit" value="Register">
+            </form>
+        </div>
+        <div class="mentorreg registrationbox">
+            <p>MENTOR</p>
+            <form class="container1" action="/mentor-registration" method="post">
+                <h4>Name :</h4>
+                <input class="input-text" type="text" name="mentorname" placeholder="enter your name" required autocomplete="off">
+                <h4>Email :</h4>
+                <input class="input-text" type="email" name="mentoremail" placeholder="enter your email" autocomplete="off">
+                <h4>Mobile No :</h4>
+                <input class="input-text" type="tel" name="mentormobile" placeholder="enter your phone number" autocomplete="off">
+                <h4>Password :</h4>
+                <input class="input-text" type="password" name="mentorpassword" placeholder="create your password">
+                <h4>Gender: </h4>
+                <input class="gender-radio" type="radio" id="qwe" name="mentorgender" value="male"> <label for="qwe">Male</label>
+                <input class="gender-radio" type="radio" name="mentorgender" value="female" id="wer" ><label for="wer">Female</label>
+                <h4>Department: </h4>
+                <select class="department-select mentor-department" name="mentordepartment">
+                    <option>--Select--</option>
+                    <option>CSE</option>
+                    <option>IT</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+                    <option>META</option>
+                    <option>MINING</option>
+                </select>
+                <h4>Language:</h4>
+                <select class="language-select mentor-language" name="mentorlanguage">
+                    <option>--Select--</option>
+                    <option>Hindi</option>
+                    <option>English</option>
+                    <option>Kanaddda </option>
+                    <option>Telugu</option>
+                    <option>Tamil</option>
+                    <option>Malyali</option>
+                </select>
+                <h4>Passing Year:</h4>
+                <input class="passing-year" type="year" name="mentor_passing_year">
+                <h4>Company :</h4>
+                <input class="input-text" type="text" name="mentorcompany"placeholder="enter your current company name">
+                <input class="buttn" type="submit" value="Register">
+            </form>
+        </div>
+        <div class="menteereg registrationbox">
+            <p>MENTEES</p>
+            <form class="container" action="/mentee-registration" method="post">
+                <h4>Name :</h4>
+                <input class="input-text" type="text" name="menteename" placeholder="enter your name" required autocomplete="off">
+                <h4>Email :</h4>
+                <input class="input-text" type="email" name="menteeemail" placeholder="enter your email" autocomplete="off">
+                <h4>Mobile No :</h4>
+                <input class="input-text" type="tel" name="menteemobile" placeholder="enter your phone number" autocomplete="off">
+                <h4>Password :</h4>
+                <input class="input-text" type="password" name="menteepassword" placeholder="create your password">
+                <h4>Gender: </h4>
+                <input class="gender-radio" type="radio" id="bfdg" name="menteegender" value="male"> <label for="bfdg">Male</label>
+                <input class="gender-radio" id="bfd" type="radio" name="menteegender" value="female"><label for="bfd">Female</label>
+                <h4>Department: </h4>
+                <select class="department-select mentee-department" name="menteedepartment">
+                    <option>--Select--</option>
+                    <option>CSE</option>
+                    <option>IT</option>
+                    <option>ECE</option>
+                    <option>EEE</option>
+                    <option>MECH</option>
+                    <option>CIVIL</option>
+                    <option>META</option>
+                    <option>MINING</option>
+                </select>
+                <h4>Language:</h4>
+                <select class="language-select mentee-language" name="menteelanguage">
+                    <option>--Select--</option>
+                    <option>Hindi</option>
+                    <option>English</option>
+                    <option>Kanaddda </option>
+                    <option>Telugu</option>
+                    <option>Tamil</option>
+                    <option>Malyali</option>
+                </select>
+                <h4>Semester:</h4>
+                <select class="semester-select mentee-semester" name="menteesemester">
+                    <option>--Select--</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+                <input class="buttn" type="submit" value="Register">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

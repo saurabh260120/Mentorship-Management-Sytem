@@ -1,0 +1,332 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+body{
+    margin-bottom: 10px;
+}
+#navbar{
+    background-color: white;
+    padding: 13px 50px;
+    box-shadow: 0 .5rem .5rem rgb(0,0,0,.2);
+
+}
+#navbar ul{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+#navbar li{
+    list-style: none;
+    border: 1px solid #018786;
+    border-radius: 3px;
+    padding: 5px 1px;
+    margin-right: 10px;
+    background-color: #018786;
+}
+#navbar li a{
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    padding: 0px 25px;
+    color: white;
+}
+
+
+.containerlist{
+    display: flex;
+    justify-content: space-around ;
+    /* align-items: flex-start; */
+}
+
+.mentort{
+    width: 50%;
+    /* align-items: flex-start; */
+
+}
+.menteet{
+    width: 40%;
+    /* align-items: flex-start; */
+}
+
+
+.table-heading{
+    text-align: center;
+    font-size: 20px;
+    color: #0556f3;
+}
+
+.butn{
+    border: 2px solid #0556f3 ;
+    padding: 4px;
+    text-align: center;
+    background-color: white;
+    border-radius: 5px;
+    display: grid;
+   margin: auto;
+}
+.inline{
+    display: inline;
+    padding: 0px 5px;
+}
+
+.mhead{
+    text-align: center;
+    margin-top: 15px;
+    font-size: 30px;
+}
+.mhead span{
+    color: rgb(199, 11, 93);
+}
+.menthead{
+   
+    color: rgb(199, 11, 93);
+    font-weight: 100;
+    border-bottom: 2px solid #018786;
+    padding: 10px 10px;
+    
+    border-radius: 2px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.container1{
+    display: flex;
+    justify-content: space-around;
+    margin: 10px 25px;
+}
+.container1 ul{
+    list-style: none;
+}
+.container1 ul li{
+    padding-bottom: 10px;
+}
+
+.box1{
+    border: 2px solid #038787;
+    border-radius: 15px;
+    box-shadow: rgba(4, 180, 180, 0.05) 0px 6px 24px 0px, rgba(3, 190, 190, 0.08) 0px 0px 0px 1px;
+    height: 75vh;
+}
+
+.details{
+    width: 30%;
+}
+
+.chat{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    /* position: relative; */
+}
+
+.messeges::-webkit-scrollbar {
+    display: none;
+}
+
+/* .container2{
+    margin-left: 30px;
+    width: 50%;
+} */
+
+.msgsend{
+    bottom: 2px;
+    margin-bottom: 10px;
+    width: 90%;
+    /* margin: 0 10%; */
+}
+
+.msgform{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    margin: 0 5%;
+}
+
+.msg{
+  border: 1.5px solid #018786;
+  padding: 5px 8px;
+  border-radius: 13px;
+  height: 25px;
+  width: 70%;
+  /* margin-left: 10%; */
+}
+
+.delete{
+    width: 20%
+}
+
+.msg:focus{
+    outline: 1px solid #3ed2d2;
+}
+
+/* .chatwindow
+{
+    background-color: aqua;
+} */
+
+/* the bellow 4 selector are to allign the chats */
+
+/* .mentor {
+    margin-left: 50%;
+    margin-right: 30px; 
+    border: 1.5px  solid #dc136a;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    width: fit-content;
+    max-width: 50%;
+    margin-bottom: 10px;
+} */
+
+.mentor{
+    display: flex;
+    justify-content: flex-end;
+}
+.mentor .newjugad{
+    position: relative;
+    padding: 5px 10px;
+    border: 1.5px  solid #dc136a;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30%;
+}
+
+.Mentee {
+    margin-left: 30px;
+    border: 1.5px  solid #0f9d9d;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 15px;
+    width: fit-content;
+    max-width: 70%;
+    margin-bottom: 10px;
+}
+
+
+
+
+.Mentor {
+    display: flex;
+    justify-content: flex-end;
+}
+.Mentor .newjugad{
+    position: relative;
+    padding: 5px 10px;
+    border: 1.5px  solid #dc136a;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-bottom: 10px;
+    margin-right: 30px;
+    margin-left: 30%;
+}
+
+
+.mentee {
+    margin-bottom: 10px;
+    margin-left: 30px;  
+    border: 1.5px  solid #07a5a5;
+   border-radius: 5px;
+   padding: 5px 10px;
+   font-size: 15px;
+   width: fit-content;
+   max-width: 60%;
+}
+
+.messeges{
+    overflow-y: auto;
+    min-height: 55vh;
+    max-height: 55vh;
+    margin-bottom: 10px;
+}
+
+/* .messeges span{
+   
+   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+   border-radius: 5px;
+   padding: 5px 10px;
+   font-size: 15px;
+} */
+
+.messeges p{
+    padding: 13px;
+}
+
+/* feedback from mentee */
+
+.feedbackfrommentee h1{
+text-align: center;
+margin-top: 30px;
+}
+
+.heading{
+    color: #018786;
+    font-weight: 100;
+    border-bottom: 2px solid #018786;
+    border-radius: 1px;
+    padding: 4px 30px;
+    margin-bottom: 20px;
+}
+
+table{
+    width: 90%;
+    /* border-collapse: collapse; */
+    margin: 0 auto;
+
+}
+table td {
+    padding-bottom: 10px;
+    font-size: 20px;
+    /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
+    border-bottom: .1px solid #999;
+}
+
+
+td:nth-child(odd) {
+    color: rgb(199, 11, 93);
+  }
+
+ input[type=submit] {
+    background-color: #dc136a;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 8px 10px;
+    text-decoration: none;
+    margin: 4px 1px;
+    cursor: pointer;
+  }
+
+
+  /* navbar for mentor and mentee page */
+  @media (max-width: 800px) {
+    #navbar ul{
+        flex-direction: column;
+    }
+  }
+  @media (max-width: 800px) {
+    #navbar ul li {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 2px;
+    }
+  }
+
+
+  @media (max-width: 800px) {
+    .container1 {
+      flex-direction: column;
+    }
+  }
+  
+ @media (max-width: 800px) {
+    .box1{
+        width: 100%;
+        justify-content: center;
+        padding-bottom: 20px;
+    }
+  }

@@ -1,0 +1,41 @@
+doctype html
+html(lang="en")
+  head
+    title login 
+    style
+      include ../static/style.css
+  body
+    nav#navbar 
+        ul 
+           li #[a(href="/") Home ]
+           li #[a(href="/registration") Register  ]
+           li #[a(href="/login") Login ] 
+    div.headline LOGIN
+    div#login  
+       div.adimnlog.loginbox
+        p ADMIN
+        form(action="/admin-login" method="post" class="formcontainer")
+          h4 Email :
+          input(type="email",class="input-text", name="log_adminemail" , placeholder="enter your email")
+          h4 Password :
+          input(type="password",class="input-text", name="log_adminpassword" , name="log_adminpassword")
+          input(type="submit" class="login-btn" value="login")
+
+       div.mentorlog.loginbox
+        p MENTOR
+        form(action="/mentor-login" method="post" class="formcontainer")
+          h4 Email :
+          input(type="email",class="input-text", name="login_mentoremail" , placeholder="enter your email")
+          h4 Password :
+          input(type="password",class="input-text", name="login_mentorpassword" , placeholder="enter your password")
+          input(type="submit" class="login-btn" value="login")
+
+
+       div.menteelog.loginbox
+        p MENTEES 
+        form(action="/mentee-login" method="post" class="formcontainer")
+          h4 Email :
+          input(type="email",class="input-text", name="login_menteeemail" , placeholder="enter your email")
+          h4 Password :
+          input(type="password",class="input-text", name="login_menteepassword" , placeholder="enter your password")
+          input(type="submit" class="login-btn" value="login")
