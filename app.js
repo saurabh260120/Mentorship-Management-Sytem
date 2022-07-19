@@ -58,7 +58,7 @@ app.post('/mentor-registration', async(req, res)=>{
          })
       //    console.log(regmentor);
          await regmentor.save(); 
-         res.status(201).redirect("/login");
+         res.status(201).render("registration_msg.pug");
       }catch(error){
             console.log(error)
 
@@ -82,7 +82,7 @@ app.post('/mentee-registration', async(req, res)=>{
          })
       //    console.log(regmentor);
          await regmentee.save();
-         res.status(201).redirect("/login");
+         res.status(201).render("registration_msg.pug");
       }catch(error){
             console.log(error)
 
@@ -99,10 +99,10 @@ app.post('/admin-registration', async(req, res)=>{
             adminpassword : req.body.adminpassword
          })
          await regadmin.save();
-         res.status(201).redirect("/login");
+         res.status(201).render("registration_msg.pug");
       }catch(error){
             console.log(error)
-res.status(400).send(error);
+            res.status(400).send(error);
       }
 })
 // registration part end here
@@ -120,6 +120,11 @@ app.post('/admin-login', async(req, res)=>{
             const email= req.body.log_adminemail;
             const password= req.body.log_adminpassword;
             const userdata = await adminRegis.findOne({adminemail:email});
+            if(email!="saurabh18187@gmail.com")
+            {
+                  res.render('invalidadmin.pug');
+            }
+            else
             if(userdata.adminpassword===password){
                   store.set('key1', email);
                   res.status(201).redirect("/admin");
@@ -157,7 +162,10 @@ app.post('/mentor-login', async(req, res)=>{
             // data.mentor = await MentorRegis.findOne({mentoremail:email});
 
             mentor = await MentorRegis.findOne({mentoremail:email});
-
+            if(mentor===null){
+                  res.render('invalid.pug');
+            }
+            else
             // data.mentee = await MenteeRegis.findOne({assignedmentor:data.mentor.mentor_id});
 
 
@@ -184,7 +192,7 @@ app.post('/mentor-login', async(req, res)=>{
             }
             else
             {
-                  res.status(400).send("password not matched");
+                  res.send("INVALID CREDENTIAL");
             }
 
       }catch(error){
@@ -226,7 +234,10 @@ app.post('/mentee-login', async(req, res)=>{
            
 
             mentee= await MenteeRegis.findOne({menteeemail:email});
-
+            if(mentee===null){
+                  res.render('invalid.pug');
+            }
+            else
             // data.mentee= await MenteeRegis.findOne({menteeemail:email});
             // data.mentor= await MentorRegis.findOne({assignedmentee:data.mentee.mentee_id});
             //console.log(data.mentor);
@@ -252,7 +263,7 @@ app.post('/mentee-login', async(req, res)=>{
             }
             else
             {
-                  res.status(400).send("password not matched");
+                  res.render('invalid.pug');
             }
 
       }catch(error){
@@ -350,7 +361,7 @@ app.get('/mentee', async (req, res)=>{
       
       if(data.mentor==null)
       {
-            res.send("Mentor Not Assigned To You"); 
+            res.render('notalloted.pug'); 
       }
       else
       {
@@ -405,7 +416,7 @@ app.get('/mentor', async (req, res)=>{
             // console.log(data.mentee);
             if(data.mentee==null)
             {
-                  res.send("Mentee Not Assigned To You");
+                  res.render('notalloted.pug');
             }
             else
             {
