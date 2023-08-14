@@ -10,10 +10,11 @@
   "author": "saurabh",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.17.3",
     "express-mongo-sanitize": "^2.2.0",
-    "mongoose": "^6.2.10",
-    "nodemon": "^2.0.19",
+    "mongoose": "^6.11.5",
+    "nodemon": "^3.0.1",
     "pug": "^3.0.2",
     "store2": "^2.13.2"
   }

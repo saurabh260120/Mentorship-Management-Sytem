@@ -1,12 +1,13 @@
-// express is used to reduce our work of serving files on requests.
-//as previously we used to serve file with if else statements
-// handles routing
-
 const express=require("express");
 const fs=require("fs");
 const path= require("path");
 const { allowedNodeEnvironmentFlags } = require("process");
 const app= express();
+
+// middleware
+app.use(express.json());
+app.use(express.urlencoded());
+
 const port = process.env.PORT || 80;
 
 const store = require("store2");
@@ -24,7 +25,7 @@ const menteeCounter=require("./models/counterschema4mentee");
 // EXPRESS SPECIFIC STUFF
 app.use('/static', express.static('static')) // For serving static files
 //app.use(express.urlencoded())
-app.use(express.urlencoded({ extended: true }))
+
 
 // PUG SPECIFIC STUFF
 app.set('view engine', 'pug') // Set the template engine as pug
@@ -144,17 +145,6 @@ app.post('/admin-login', async(req, res)=>{
 
 app.post('/mentor-login', async(req, res)=>{
       try{  
-            // let data = {
-            //       mentor : {
-      
-            //       },
-            //       mentee:{
-      
-            //       },
-            //       messeged:{
-
-            //       }
-            // };
             const email= req.body.login_mentoremail;
             const password= req.body.login_mentorpassword;
             store.set('currentmentoremail', email);
@@ -166,24 +156,6 @@ app.post('/mentor-login', async(req, res)=>{
                   res.render('invalid.pug');
             }
             else
-            // data.mentee = await MenteeRegis.findOne({assignedmentor:data.mentor.mentor_id});
-
-
-            //console.log(data.mentor.mentorname);
-            // const temp = await mentormenteemsg.find({mentorid:data.mentor.mentor_id,menteeid:data.mentee.mentee_id});
-            // if(temp.length==0)
-            // {  
-            //       data.messeged.messege="No messege Yet";
-            //       data.messeged.mentorid=0;
-            //       data.messeged.menteeid=0;
-            // }
-            // else
-            // {     
-            //       data.messeged = await mentormenteemsg.find({mentorid:data.mentor.mentor_id,menteeid:data.mentee.mentee_id});
-            // }
-
-            //console.log(data.messeged);
-             //console.log(data.messeged[0].messege);
             if(mentor.mentorpassword===password){
                   // res.status(200).render('mentor.pug',{
                   //       data:data
@@ -217,42 +189,19 @@ app.get('/menteelogout', (req, res)=>{
 
 app.post('/mentee-login', async(req, res)=>{
       try{   
-            // let data = {
-            //       mentor : {
-      
-            //       },
-            //       mentee:{
-      
-            //       },
-            //       messeged:{
-
-            //       }
-            // };
+            
             const email= req.body.login_menteeemail;
             const password= req.body.login_menteepassword;
             store.set('currentmenteeemail', email);
-           
-
+            
             mentee= await MenteeRegis.findOne({menteeemail:email});
+            
             if(mentee===null){
                   res.render('invalid.pug');
+                  
             }
             else
-            // data.mentee= await MenteeRegis.findOne({menteeemail:email});
-            // data.mentor= await MentorRegis.findOne({assignedmentee:data.mentee.mentee_id});
-            //console.log(data.mentor);
-            // const temp = await mentormenteemsg.find({mentorid:data.mentor.mentor_id,menteeid:data.mentee.mentee_id});
-            // if(temp.length==0)
-            // {  
-            //       data.messeged.messege="No messege Yet";
-            //       data.messeged.mentorid=0;
-            //       data.messeged.menteeid=0;
-            // }
-            // else
-            // {     
-            //       data.messeged = await mentormenteemsg.find({mentorid:data.mentor.mentor_id,menteeid:data.mentee.mentee_id});
-            // }
-
+            
             if(mentee.menteepassword===password)
             {
                   // res.status(200).render('mentee.pug',{
@@ -262,7 +211,8 @@ app.post('/mentee-login', async(req, res)=>{
 
             }
             else
-            {
+            {     
+                  console.log("error in /mentee-login");
                   res.render('invalid.pug');
             }
 
@@ -470,8 +420,6 @@ app.get('/admin',  async (req, res)=>{
 })
 
 
-
-     
 app.post('/sendmsgbymentor', async(req, res)=>{
       try{  
             const mentmsg= new mentormenteemsg({
@@ -506,65 +454,6 @@ app.post('/sendmsgbymentee', async(req, res)=>{
       }
 })
 
-
-// app.get('/feedback-admin' , async (req,res)=>{
-//       try{
-
-//             res.render('adminfeedback.pug');
-            
-//       } catch (error) {
-//             console.log(error);  
-//       }
-
-// });
-
-// app.get('/feedback-mentor' , async (req,res)=>{
-//       try{
-
-//             res.render('mentor_feedback.pug');
-            
-//       } catch (error) {
-//             console.log(error);  
-//       }
-
-// });
-            
-// app.post('/feedfrmmentor', async(req, res)=>{
-//       try{  
-
-//             var email= (store('currentmentoremail'));
-//             const mentor = await MentorRegis.findOne({mentoremail:email});
-//             const mentfeed= new feedfrommentor({
-//                   mentorid: mentor.mentor_id,
-//                   mentoremail: email,
-//                   Feedback : req.body.messege,
-//                   From: req.body.from
-//                })
-//             await mentfeed.save();
-//             res.redirect('/feedback-mentor');
-//             }catch(error){
-//             res.status(400).send(error);
-//             console.log(error);
-//       }
-// })
-// app.post('/admintomentor', async(req, res)=>{
-//       try{  
-
-//             var email= (store('currentmentoremail'));
-//             const mentor = await MentorRegis.findOne({mentoremail:email});
-//             const mentfeed= new feedfrommentor({
-//                   mentorid: mentor.mentor_id,
-//                   mentoremail: email,
-//                   Feedback : req.body.messege,
-//                   From: req.body.from
-//                })
-//             await mentfeed.save();
-//             res.redirect('/feedback-mentor');
-//             }catch(error){
-//             res.status(400).send(error);
-//             console.log(error);
-//       }
-// })
 
 // starting the server
 app.listen(port,()=>{
