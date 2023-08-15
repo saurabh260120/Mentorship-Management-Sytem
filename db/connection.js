@@ -1,10 +1,8 @@
 const mongoose = require("mongoose");
-//mongodb+srv://saurabhnitkcse:yfI5KruWOhTav7vS@cluster0.xcx9puo.mongodb.net/atlasdatabase?retryWrites=true&w=majority
-// mongodb+srv://saurabhnitkcse:yfI5KruWOhTav7vS@cluster0.xcx9puo.mongodb.net/
 
 mongoose.set("strictQuery", false);
 
-mongoose.connect("mongodb+srv://saurabhnitkcse:yfI5KruWOhTav7vS@cluster0.xcx9puo.mongodb.net/atlasdatabase?retryWrites=true&w=majority",
+mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.xcx9puo.mongodb.net/atlasdatabase?retryWrites=true&w=majority`,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true
