@@ -1,0 +1,2 @@
+# Mentorship-Management-Sytem
+This is a web application for mentor-ship management System, using HTML,CSS,Javascript, Nodejs, Expressjs,Mongodb. It contains three modules : Admin, mentor &amp; mentee. The mentor and mentee can register themselves. Admin will allot each mentee a mentor from admin dashboard. Once mentor/ mentee assigned to mentor and mentee, they can login to dashboard and chat with each other . They will also see the Detail of the mentor/mentee assigned to them. 
